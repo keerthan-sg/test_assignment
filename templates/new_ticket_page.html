@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{%block content %}
+{{email}}
+
+
+    <div class="login">
+    <form   method="post" action="submit_ticket">
+    {% csrf_token %}
+         <h2>Submit a Ticket</h2>
+    <label><b>Ticket Information
+    </b>
+    </label>
+    <br><br>
+        <label>Department</label>
+        <br><br>
+        <select name="dept" id="dept">
+          <option value="PWSLab_Devops_Support">PWSLab Devops Support</option>
+            <option value="iSupport">iSupport</option>
+        </select>
+        <br><br>
+        <label>Category</label>
+        <br><br>
+        <select name="category" id="category">
+        <option value="NEW Project CI/CD Pipeline Setup">NEW Project CI/CD Pipeline Setup</option>
+        <option value="Update CI/CD Pipeline Configuration">Update CI/CD Pipeline Configuration</option>
+        <option value="DevSecOps Pipeline Setup">DevSecOps Pipeline Setup</option>
+        <option value="CI/CD pipeline failure">CI/CD pipeline failure</option>
+        <option value="Automated Deployment failure">Automated Deployment failure</option>
+        <option value="Docker and Containers">Docker and Containers</option>
+        <option value="Kubernetes Deployments (like EKS/GCP)">Kubernetes Deployments (like EKS/GCP)</option>
+        <option value="Git Source control">Git Source control</option>
+        <option value="PWSLab server not responding (502/503 errors)">PWSLab server not responding (502/503 errors)</option>
+        <option value="PWSLab Runner not working (jobs not running)">PWSLab Runner not working (jobs not running)</option>
+        <option value="NEW Project CI/CD Pipeline Setup">NEW Project CI/CD Pipeline Setup</option>
+        <option value="User management and Project access">User management and Project access</option>
+        <option value="Cloud Integration Consultation - AWS/GCP/Azure">Cloud Integration Consultation - AWS/GCP/Azure</option>
+        <option value="Others">Others</option>
+        </select>
+        <br><br>
+        <label>PWSLab Project URL</label>
+        <br><br>
+        <input type="text" name="url" id="url">
+        <br><br>
+        <label>Subject</label>
+        <br><br>
+        <input type="text" name="subject" id="subject" >
+        <br><br>
+        <label>Description</label>
+        <textarea></textarea>
+        <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+        <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+        <br><br>
+        <label><b>Contact Details
+        </b>
+        </label>
+        <br><br>
+        <label>Contact Name</label>
+        <br><br>
+        <input type="text" name="contact_name" id="contact_name" >
+        <br><br>
+        <label>Email</label>
+        <br><br>
+        <input type="text" name="email" id="email" >
+         <br><br>
+        <label>Phone</label>
+        <br><br>
+        <input type="text" name="phone" id="phone" >
+        <br><br>
+        <label><b>Additional Information
+        </b>
+        </label>
+        <br><br>
+        <label>Priority
+        </label>
+        <br><br>
+        <select name="priority" id="priority">
+            <option value="none">None</option>
+            <option value="High - Production System Down">High - Production System Down</option>
+            <option value="Medium - System Impaired">Medium - System Impaired</option>
+            <option value="Low - General Guidance">Low - General Guidance</option>
+        </select>
+        <br><br>
+        <input type="file" id="myfile" name="myfile" multiple><br><br>
+        <label for="myfile">Attach a file (Up to 20 MB )</label>
+        <br><br>
+        <input type="submit"  value="Submit "><a href="">Discard</a>
+        <br><br>
+    </form>
+{% endblock %}
+</body>
+</html>
